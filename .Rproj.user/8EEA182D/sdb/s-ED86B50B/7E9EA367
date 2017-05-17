@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "print(\"Training models...\")\nset.seed(999)\ncustomerData <- custaggdata[, -c(1,3)]\ntrainIndex <- createDataPartition(customerData$churn, p = .8,list = FALSE, times = 1)\nhead(trainIndex)\n\ndataTrain <- customerData[ trainIndex,]\ndataTest  <- customerData[-trainIndex,]\n\nlibrary(\"randomForest\")\nlibrary(\"kernlab\")\nlibrary(\"xgboost\")\n\n#RF\nprint(\"RANDOM FOREST...\")\nstartTime <- proc.time()\nmodelrf <- train(churn ~ ., data = dataTrain, method = \"rf\", trControl = trainControl(method = \"cv\", number = 10))\nendTime <- proc.time() - startTime\nmodelrf\nconfusionMatrix(modelrf)\nrfTime <- paste(\"Finished training RF model in\", endTime[1], \"seconds. CPU Time =\", endTime[2], \"seconds.\")\nprint(rfTime)\n\n#SVM\nprint(\"SUPPORT VECTOR MACHINE...\")\nstartTime <- proc.time()\nmodelsvm <- train(churn ~ ., data = dataTrain, method = \"svmRadialWeights\", trControl = trainControl(method = \"cv\", number = 10))\nendTime <- proc.time() - startTime\nmodelsvm\nconfusionMatrix(modelsvm)\nsvmTime <- paste(\"Finished training SVM model in\", endTime[1], \"seconds. CPU Time =\", endTime[2], \"seconds.\")\nprint(svmTime)\n\n#XGB\nprint(\"XTREME GRADIENT BOOSTING...\")\nstartTime <- proc.time()\nmodelxgb <- train(churn ~ ., data = dataTrain, method = \"xgbTree\", trControl = trainControl(method = \"cv\", number = 10))\nendTime <- proc.time() - startTime\nmodelxgb\nconfusionMatrix(modelxgb)\nxgbTime <- paste(\"Finished training XGB model in\", endTime[1], \"seconds. CPU Time =\", endTime[2], \"seconds.\")\nprint(xgbTime)\n",
+    "created" : 1493562802727.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1995811568",
+    "id" : "7E9EA367",
+    "lastKnownWriteTime" : 1493780421,
+    "last_content_update" : 1493780421187,
+    "path" : "D:/Projects/FYP/Code/training.R",
+    "project_path" : "training.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

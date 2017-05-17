@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "print(\"Testing models over data...\")\n#Cross validation results\nresults <- resamples(list(RF=modelrf, XGB=modelxgb, SVM=modelsvm))\nsummary(results)\ndotplot(results)\n\n###Testing\n#RF\ntestPred <- predict(modelrf, dataTest)\npostResample(testPred, dataTest$churn)\nsensitivity(testPred, dataTest$churn)\nconfusionMatrix(testPred, dataTest$churn)\nrfTable=data.frame(Observed=dataTest$churn,Predicted=testPred)\nrfAcc = sum(testPred==dataTest$churn)/length(dataTest$churn)\nrfErr=1-rfAcc\nprint(paste(\"RF Accuracy: \", rfAcc))\n\n#SVM\ntestPred <- predict(modelsvm, dataTest)\npostResample(testPred, dataTest$churn)\nsensitivity(testPred, dataTest$churn)\nconfusionMatrix(testPred, dataTest$churn)\nsvmTable=data.frame(Observed=dataTest$churn,Predicted=testPred)\nsvmAcc = sum(testPred==dataTest$churn)/length(dataTest$churn)\nsvmErr=1-svmAcc\nprint(paste(\"SVM Accuracy: \", svmAcc))\n\n#XGB\ntestPred <- predict(modelxgb, dataTest)\npostResample(testPred, dataTest$churn)\nsensitivity(testPred, dataTest$churn)\nconfusionMatrix(testPred, dataTest$churn)\nxgbTable=data.frame(Observed=dataTest$churn,Predicted=testPred)\nxgbAcc = sum(testPred==dataTest$churn)/length(dataTest$churn)\nxgbErr=1-xgbAcc\nprint(paste(\"XGB Accuracy: \", xgbAcc))\n\nprint(\"Finshed testing. Check on the right for results.\")\n",
+    "created" : 1493562989356.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "489561347",
+    "id" : "C63546B",
+    "lastKnownWriteTime" : 1493790211,
+    "last_content_update" : 1493790211585,
+    "path" : "D:/Projects/FYP/Code/testing.R",
+    "project_path" : "testing.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "setwd(\"D:/Projects/FYP/Code\")\nsource(\"preprocess.R\")\nsource(\"invoiceAggregate.R\")\nsource(\"customerAggregate.R\")\nsource(\"training.R\")\nsource(\"testing.R\")",
+    "created" : 1493745682385.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "42219915",
+    "id" : "2135374",
+    "lastKnownWriteTime" : 1493746806,
+    "last_content_update" : 1493746806875,
+    "path" : "D:/Projects/FYP/Code/main.R",
+    "project_path" : "main.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
